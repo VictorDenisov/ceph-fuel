@@ -1,0 +1,4 @@
+attributes:
+  metadata:
+    label: 'Detach Ceph Monitor Plugin'
+    weight: 90
