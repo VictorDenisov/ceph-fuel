@@ -87,9 +87,9 @@
   type: skipped
   version: 2.1.0
 
-- id: top-role-ceph-osd
-  type: skipped
-  version: 2.1.0
+#- id: top-role-ceph-osd
+#  type: skipped
+#  version: 2.1.0
 
 #- id: openstack-haproxy-radosgw
 #  type: skipped
