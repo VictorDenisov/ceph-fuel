@@ -101,13 +101,13 @@
   type: skipped
   version: 2.1.0
 
-- id: updatedb
-  type: skipped
-  version: 2.1.0
+#- id: updatedb
+#  type: skipped
+#  version: 2.1.0
 
-- id: ceph_ready_check
-  type: skipped
-  version: 2.1.0
+#- id: ceph_ready_check
+#  type: skipped
+#  version: 2.1.0
 
 - id: enable_rados
   type: skipped
