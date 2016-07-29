@@ -105,10 +105,6 @@
   type: skipped
   version: 2.1.0
 
-- id: ceph_create_pools
-  type: skipped
-  version: 2.1.0
-
 - id: ceph_ready_check
   type: skipped
   version: 2.1.0
@@ -212,17 +208,17 @@
 #    cmd: ruby /etc/puppet/modules/osnailyfacter/modular/ceph/ceph_ready_check.rb
 #    timeout: 1800
 
-#- id: ceph_client
-#  type: puppet
-#  version: 2.1.0
-#  role: [primary-controller,controller]
-#  requires: [post_deployment_end]
-#  required_for: [ceph_create_pools,post_deployment_end]
-#  condition: "settings:storage.objects_ceph.value == true or settings:storage.images_ceph.value == true or settings:storage.volumes_ceph.value == true or settings:storage.ephemeral_ceph.value == true"
-#  parameters:
-#    puppet_manifest: 'ceph_client.pp'
-#    puppet_modules: 'modules:/etc/puppet/modules'
-#    timeout: 3600
+- id: ceph_client
+  type: puppet
+  version: 2.1.0
+  role: [primary-controller,controller]
+  requires: [post_deployment_start]
+  required_for: [ceph_create_pools,post_deployment_end]
+  condition: "settings:storage.objects_ceph.value == true or settings:storage.images_ceph.value == true or settings:storage.volumes_ceph.value == true or settings:storage.ephemeral_ceph.value == true"
+  parameters:
+    puppet_manifest: 'ceph_client.pp'
+    puppet_modules: 'modules:/etc/puppet/modules'
+    timeout: 3600
 
 #- id: dns-client-for-standalone-ceph
 #  type: puppet
